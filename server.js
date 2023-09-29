@@ -39,6 +39,27 @@ server.post('/produto', (req, res) => {
     res.status(201).send(produto)
 })
 
+server.put('/produto/:id', (req, res) =>{
+    const idParam = req.params.id;
+    console.log('objetos com valores atualizados', req.body)
+    const produto = req.body
+
+    const produtoComAtualizacao = req.body
+
+    let produtoAtualizacao = dbatualizar(idParam, produto)
+    db.atualizar(idParams, produtoComAtualizacao);
+    return res.status(200).send(produtoAtualizado)
+})
+
+server.delete('/produto/:id', (req, res) => {
+   const {id} = req.params;
+
+   const produto = db.excluir(id)
+
+   return res.status(200).send(produto)
+
+})
+
 
 server.listen({
     port: PORT,
